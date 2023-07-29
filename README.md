@@ -1,4 +1,4 @@
-# vakta
+# Vakta 0.0.1
 
 Introducing a new desktop app designed specifically for blind individuals. Using voice-activated search, the app provides users with seamless access to a wide range of information.
 
