@@ -73,7 +73,7 @@ class MainScreen(BoxLayout):
             Clock.schedule_once(self.engine, 0.1)
 
     def display_text(self, sent):
-        self.ids.words.text += sent
+        self.ids.words.text += sent + ' '
 
         label_text = self.ids.words.text
         if len(label_text) > 100:
