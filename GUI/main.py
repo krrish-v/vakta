@@ -7,6 +7,9 @@ from kivy.clock import Clock
 
 import speech_recognition as sr
 import time
+from elevenlabs import generate, play, set_api_key
+
+set_api_key("<API KEY>")
 
 # Define the KivyMD KV language string
 KV = """
@@ -25,14 +28,6 @@ KV = """
             icon_size: "100sp"
             md_bg_color: 'green'
             size_hint: 0.5, 0.5
-
-        MDLabel:
-            id: log
-            text: 'Speak now...'
-            font_size: 15
-            md_bg_color: 'blue'
-            size_hint: 1, 0.05
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
     
     MDBoxLayout:
         size_hint: 1, 0.3
@@ -52,7 +47,8 @@ class MainScreen(BoxLayout):
         # self.r.energy_threshold()
 
         with sr.Microphone() as source:
-
+            
+            self.speaker('Speak now')
             self.r.adjust_for_ambient_noise(source,duration=1)
             self.audio= self.r.listen(source, timeout=0)
             
@@ -66,12 +62,13 @@ class MainScreen(BoxLayout):
     # Define the callback for the voice icon press
     def on_voice(self, dt):
         
+        self.speaker('Please wait for the response')
         self.ids.voice.md_bg_color = 'red'
-        self.ids.log.text = "Processing..."
+
         try:
             Clock.schedule_once(self.recog, 0.1)
         except:
-            self.ids.log.text = "Unable to recognise..."
+            self.speaker('Unable to recognise your voice Try again')
             time.sleep(1)
             Clock.schedule_once(self.engine, 0.1)
 
@@ -85,16 +82,26 @@ class MainScreen(BoxLayout):
         # Rest of the code
         #-----------------------
         if 'exit' in sent:
+            self.speaker('Exiting the program')
             exit()
         #-----------------------
 
         self.ids.voice.md_bg_color = 'green'
-        self.ids.log.text = "Listeninig..."
 
         Clock.schedule_once(self.engine, 0.1)
 
+    def speaker(self, sent):
+        audio = generate(
+            text=sent,
+            voice="Bella",
+            model="eleven_monolingual_v1"
+        )
+
+        play(audio)
+
     def start(self, dt):
         time.sleep(1)
+        self.speaker('Starting up the program')
         Clock.schedule_once(self.engine, 0.1)
 
 # Create the main app class
