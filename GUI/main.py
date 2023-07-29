@@ -20,7 +20,7 @@ memory = ConversationBufferWindowMemory(k=1) # stores previous k conversations b
 
 
 
-llm = ChatOpenAI(temperature=0.0,openai_api_key="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")
+llm = ChatOpenAI(temperature=0.0,openai_api_key="<API KEY>")
 memory = ConversationBufferWindowMemory(k=1)
 conversation = ConversationChain(
     llm=llm,
