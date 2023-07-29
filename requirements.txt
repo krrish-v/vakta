@@ -1,0 +1,6 @@
+Kivy==2.1.0
+kivymd==1.1.1
+SpeechRecognition==3.8.1
+elevenlabs==0.2.21
+langchain==0.0.247
+openai==0.27.8
