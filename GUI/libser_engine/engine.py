@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from libser_engine.utils import payload
 from libser_engine.utils.exception import GoogleCaptcha, GoogleCookiePolicies
 import re
-from googlesearch import search
 import urllib3
 
 class Extract():
