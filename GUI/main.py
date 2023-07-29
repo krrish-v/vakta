@@ -9,7 +9,7 @@ import speech_recognition as sr
 import time
 from elevenlabs import generate, play, set_api_key
 
-set_api_key("f6fd104607b5752adfdfea2f8f330cbc")
+set_api_key("<API KEY>")
 
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
