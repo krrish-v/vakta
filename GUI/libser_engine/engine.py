@@ -6,7 +6,7 @@ from libser_engine.utils.exception import GoogleCaptcha, GoogleCookiePolicies
 import re
 import urllib3
 
-class Extract():
+class Extract:
 
 	#____________________________________________
 	# duckduckgo.com
@@ -18,7 +18,7 @@ class Extract():
 
 		link = []
 		try:
-			self.link = 'https://html.duckduckgo.com/html/?q=' + self.qury.replace(' ', '+') # + '&ai=software'
+			self.link = 'https://html.duckduckgo.com/html/?t=ffab&q=' + self.qury  + '&ia=software'
 			req = requests.get(self.link, headers=self.paylod, allow_redirects=False, timeout=10)
 			self.data = req.text
 			status = req.status_code
@@ -78,7 +78,6 @@ class Extract():
 		try:
 				
 			url = url_base + f"/search?num="+self.quantity+"&start=" + str(self.counter) + "&hl=en&meta=&q=filetype:"+self.filetype+ ' ' + self.word
-			print(url)
 			response = requests.get(url, headers=header, timeout=5, verify=False, allow_redirects=False)
 			
 			text = response.text
@@ -103,39 +102,7 @@ class Extract():
 
 		except: return [] #It's left over... but it stays there'''
 
-	#______________________________________
-	# yandex.com
-	#-------------------------------------
-	def yandex_search(self, target, filetype):
-		self.target = target
-		self.filetype = filetype
-		self.paylod = payload.Headers().yandex_parm()
 
-		_link_ = 'https://yandex.com/search/?text=' + self.target + '+filetype+%3A+' + self.filetype
-		all_links = []
-
-		req = requests.get(_link_, headers=self.paylod, timeout=5)
-
-		self.data = req.text
-		status = req.status_code
-		
-		soup = BeautifulSoup(self.data, 'html.parser')
-
-		patt = "^http.*.pdf$"
-
-		if status == 200:
-			for link_ in soup.find_all('a', href=True):
-				lnks = link_['href']
-				search_ind = re.search(patt, lnks)
-
-				if search_ind is not None:
-					_lnks_ = search_ind[0]
-				
-					if _lnks_ not in all_links:
-						all_links.append(_lnks_)
-		
-			return all_links
-		else: return []
 
 class accumulate:
 
@@ -147,7 +114,7 @@ class accumulate:
 
 	def google(self):
 		
-		try: self.link =  Extract().google_search(qr, 40, self.filetype)
+		try: self.link =  self.extract.google_search(self.query, 40, self.filetype)
 		except: self.link = []
 	
 		return self.link
@@ -155,24 +122,7 @@ class accumulate:
 	def duckgo(self):
 		query = self.query + ' filetype:' + self.filetype
 		
-		try: self.link =  Extract().duckduckgo_search(query)
-		except: self.link = False
-
-		data = []
-		
-		if self.link is not False:
-			for i in self.link:
-
-				if '.pdf' in i:
-					data.append(i)
-		
-			return data
-				
-		else: return []
-	
-	def yandex(self):
-		
-		try: self.link =  Extract().yandex_search(self.query, self.filetype)
+		try: self.link = self.extract.duckduckgo_search(query)
 		except: self.link = False
 
 		data = []
@@ -189,44 +139,7 @@ class accumulate:
 
 	def all(self):
 		list1 = self.google()
-		list2 = self.duckgo()
-		list3 = self.yandex()
+		if not list1:
+			list1 = self.duckgo()
 
-		return list1+list2+list3
-
-class recomm():
-	
-	def google_book_search(self, target):
-		self.target = target
-		self.paylod = payload.Headers().google_parm()
-
-		urllib3.disable_warnings()
-		base_url = "https://www.googleapis.com/books/v1/volumes"
-		params = {"q": self.target, "maxResults": 10}
-
-		response = requests.get(base_url, params=params, headers=self.paylod, timeout=5, verify=False, allow_redirects=False)
-
-		status = response.status_code
-
-		if status == 200:
-			data = response.json()
-			if "items" in data:
-				return data["items"]
-			else:
-				return []
-				
-		else: return False
-
-	def google_books(self, query):
-		self.books_name = []
-
-		books_data = self.google_book_search(query)
-		if books_data:
-			for book in books_data:
-				volume_info = book.get("volumeInfo", {})
-				title = volume_info.get("title", "N/A")
-				#authors = ", ".join(volume_info.get("authors", ["N/A"]))
-				self.books_name.append(title)
-
-		return self.books_name
-
+		return list1
