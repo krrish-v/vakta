@@ -9,7 +9,25 @@ import speech_recognition as sr
 import time
 from elevenlabs import generate, play, set_api_key
 
-set_api_key("<API KEY>")
+set_api_key("f6fd104607b5752adfdfea2f8f330cbc")
+
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferWindowMemory
+
+# set memory buffer window to 1 to avoid passing excessive tokens-->
+memory = ConversationBufferWindowMemory(k=1) # stores previous k conversations between Ai and human
+
+
+
+llm = ChatOpenAI(temperature=0.0,openai_api_key="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")
+memory = ConversationBufferWindowMemory(k=1)
+conversation = ConversationChain(
+    llm=llm,
+    memory = memory,
+    verbose=False
+)
+
 
 # Define the KivyMD KV language string
 KV = """
@@ -19,23 +37,24 @@ KV = """
     
     MDBoxLayout:
         orientation: 'vertical'
-        size_hint: 1, 0.7
+        size_hint: 1, 0.9
 
         MDIconButton:
             icon: "microphone"
             id: voice
             pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            icon_size: "100sp"
+            icon_size: "200sp"
             md_bg_color: 'green'
-            size_hint: 0.5, 0.5
     
     MDBoxLayout:
-        size_hint: 1, 0.3
-    
+
         MDLabel:
             id: words
-            text: ''
-            font_size: 30
+            size_hint: 0.5, 0.01
+            halign: 'center'
+            valign: 'middle'
+            text: 'Open Source Software | Hackathon 2023'
+            font_size: 15
 
 """
 
@@ -57,7 +76,7 @@ class MainScreen(BoxLayout):
             
     def recog(self, dts):
         self.text = self.r.recognize_google(self.audio) # google is used a recognisor
-        Clock.schedule_once(lambda x: self.display_text(self.text), 0.1)
+        Clock.schedule_once(lambda x: self.display(self.text), 0.1)
 
     # Define the callback for the voice icon press
     def on_voice(self, dt):
@@ -72,18 +91,16 @@ class MainScreen(BoxLayout):
             time.sleep(1)
             Clock.schedule_once(self.engine, 0.1)
 
-    def display_text(self, sent):
-        self.ids.words.text += sent + ' '
-
-        label_text = self.ids.words.text
-        if len(label_text) > 100:
-            self.ids.words.text = label_text[-100:]
+    def display(self, sent):
 
         # Rest of the code
         #-----------------------
         if 'exit' in sent:
             self.speaker('Exiting the program')
             exit()
+        else:
+            output = conversation.predict(input=sent)
+            self.speaker(output)
         #-----------------------
 
         self.ids.voice.md_bg_color = 'green'
