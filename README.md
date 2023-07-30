@@ -1,6 +1,7 @@
-# Vakta 0.0.1
+# Vakta 0.0.1 - AI-powered voice learning platform designed to assist individuals with visual impairments.
 
-Introducing a new desktop app designed specifically for blind individuals. Using voice-activated search, the app provides users with seamless access to a wide range of information.
+Introducing a new desktop app designed specifically for individuals with visual impairments. Using voice-activated search, the app provides users with seamless access to a wide range of information,
+
 
 ### Features
 
