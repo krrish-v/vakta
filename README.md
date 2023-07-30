@@ -11,5 +11,6 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 3. Integrated ChatGPT
 #### 4. Integrated News Delivery based on defined category 
 #### 5. Integrated Weather Reporting
+#### 6. Search any song or interview like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
 
 ![Alt Text](demo/sdfghu64tergdfhuu57463twt.png)
