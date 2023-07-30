@@ -13,4 +13,4 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 5. Integrated Weather Reporting
 #### 6. Search any song or video like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
 
-![Alt Text](demo/sdfghu64tergdfhuu57463twt.png)
+![Alt Text](demo/vak.png)
