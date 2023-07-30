@@ -191,7 +191,7 @@ class MainScreen(BoxLayout):
 
     def start(self, dt):
         time.sleep(1)
-        #self.speaker('Starting up the program')
+        self.speaker('Starting up the program')
         Clock.schedule_once(self.engine, 0.1)
 
 # Create the main app class
