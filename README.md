@@ -61,7 +61,7 @@ Introducing <strong>"Vakta 0.0.1"</strong> - an innovative and cutting-edge GUI 
 a. In Windows : <code>env/Scripts/activate</code><br/>
 b. In Linux or MacOS: <code>source env/bin/activate</code>
 4. Install dependencies: <code>pip install --upgrade pip -r requirements.txt</code>
-5. <code>pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz</code>
+5. <code>pip3 install https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz</code>
 6. Move to GUI directory and run main.py file
 ## Future Scope
 - Make the app available for Android and iOS devices since Kivy is a cross-platform Python framework.
