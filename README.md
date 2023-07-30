@@ -6,11 +6,10 @@ Introducing a new desktop app designed specifically for individuals with visual 
 ### Features
 
 
-#### 1. Voice-Activated Search
+#### 1. Voice-Activated Search with ChatGPT
 #### 2. Integrated Voice Books
-#### 3. Integrated ChatGPT
-#### 4. Integrated News Delivery based on defined category 
-#### 5. Integrated Weather Reporting
-#### 6. Search any song or video like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
+#### 3. Integrated News Delivery based on defined category 
+#### 4. Integrated Weather Reporting
+#### 5. Search any song or video like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
 
 ![Alt Text](demo/vak.png)
