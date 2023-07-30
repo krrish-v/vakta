@@ -40,18 +40,21 @@ Introducing <strong>"Vakta 0.0.1"</strong> - an innovative and cutting-edge GUI 
 - **Exit Program:** Say "Exit Program" to close the application.
 
 ## Tech Stack
-- GUI: Kivy (Python)
+- GUI: KivyMD Framework (Python)
 
 ## APIs Used
 - [ElevenLabs API](https://elevenlabs.io/)
 - [OpenAI](https://platform.openai.com/)
 - [NewsAPI](https://newsapi.org/)
 - [Google Books](https://developers.google.com/books)
+- [Open Weather Map](https://home.openweathermap.org/)
 
 ## Developer Machine Setup
 1. Clone the repository:
 <code>git clone https://github.com/krrish-v/vakta.git && cd vakta</code>
-2. Install python if not installed on your system from [python website](https://www.python.org/downloads/)
+2. Install python if not installed on your system <br/>
+- In Windows : [python website](https://www.python.org/downloads/)<br/>
+- In Linux : <code>sudo apt install python3</code>
 3. Create a virtual environment
 - If virtualenv is not installed : <code>pip install virtualenv && virtualenv env</code>
 - Activate virtual environment<br/>
