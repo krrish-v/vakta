@@ -10,7 +10,7 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 2. Integrated Voice Books
 #### 3. Integrated News Delivery based on defined category 
 #### 4. Integrated Weather Reporting
-#### 5. Search any song or video like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
+#### 5. Search and Listen Music or Podcasts avaliable on a YouTube
 
 ### Setup
 
