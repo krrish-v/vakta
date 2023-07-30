@@ -11,8 +11,9 @@ import pickle
 from elevenlabs import generate, play, set_api_key
 
 from books_recommend import get_pdf
+from news import fetch_news_by_category, find_category
 
-set_api_key("<API KEY>")
+set_api_key('<API KEY>')
 
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
@@ -21,7 +22,7 @@ from langchain.memory import ConversationBufferWindowMemory
 # set memory buffer window to 1 to avoid passing excessive tokens-->
 memory = ConversationBufferWindowMemory(k=1) # stores previous k conversations between Ai and human
 
-llm = ChatOpenAI(temperature=0.0,openai_api_key="API KEY")
+llm = ChatOpenAI(temperature=0.0,openai_api_key="<API KEY>")
 memory = ConversationBufferWindowMemory(k=1)
 conversation = ConversationChain(
     llm=llm,
@@ -42,6 +43,8 @@ def extract_entities(text):
             entities+=ent.text +' '
     
     return entities
+
+
 
 # Define the KivyMD KV language string
 KV = """
@@ -135,6 +138,21 @@ class MainScreen(BoxLayout):
                 self.ids.voice.md_bg_color = 'green'
                 Clock.schedule_once(self.engine, 0.1)
 
+        elif 'news' in sent or 'search' in sent:
+            catg = find_category(sent)
+            if catg is not None:
+                news = fetch_news_by_category(catg)
+
+                if news is not None:
+                    for key, value in news.items():
+                        self.speaker(f'Headline    {key}')
+                        self.speaker(value)
+
+            else: self.speaker(f'Unable to find the news of {catg}')
+
+            self.ids.voice.md_bg_color = 'green'
+            Clock.schedule_once(self.engine, 0.1)
+
         else:
             output = conversation.predict(input=sent)
 
@@ -173,7 +191,7 @@ class MainScreen(BoxLayout):
 
     def start(self, dt):
         time.sleep(1)
-        self.speaker('Starting up the program')
+        #self.speaker('Starting up the program')
         Clock.schedule_once(self.engine, 0.1)
 
 # Create the main app class
