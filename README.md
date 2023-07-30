@@ -23,9 +23,17 @@ Introducing <strong>"Vakta Voicebot"</strong> - an innovative and cutting-edge G
    - Ask the AI about the weather of a particular city.
    - AI responds with accurate temperature, humidity, and wind speed. For example, "What is the weather of Delhi?"
 
+<<<<<<< HEAD
 #### 4. Stay Updated with the latest news (News Mode):
    - Request for news headlines of a particular category or in general.
    - AI responds with the latest headlines from categories like Sports, Technology, Business, etc.
+=======
+#### 1. Voice-Activated Search with ChatGPT
+#### 2. Integrated Voice Books
+#### 3. Integrated News Delivery based on defined category 
+#### 4. Integrated Weather Reporting
+#### 5. Search and Listen Music or Podcasts avaliable on a YouTube
+>>>>>>> a52a87383ff6f23d1f6950c030b4e7e8d25080e8
 
 #### 5. Search and Listen to Music or Podcasts (YouTube Mode):
    - Empowers the user to search any song or video from YouTube.
