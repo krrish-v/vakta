@@ -8,34 +8,26 @@ Introducing <strong>"Vakta Voicebot"</strong> - an innovative and cutting-edge G
 <strong>"Vakta"</strong> is a Sanskrit word for <strong>"speaker."</strong> In our project, Vakta Voicebot embodies this essence by becoming a compassionate and intelligent mentor for the visually impaired. Just as ancient speakers conveyed wisdom, Vakta Voicebot aims to create a future of inclusivity and empowerment, bridging the gap between the visually impaired and knowledge.
 
 ## Features
-#### 1.  Voice-activated Information (General Mode):
+1. **Voice-activated Information (General Mode):**
    - Engage in voice-based conversations with OpenAI's LLM, powered by Eleven Lab's voice model and Langchain, utilizing memory to retain context throughout the interaction.
    - Allows the individual to ask any question and get the answer through voice. Questions like “ What is the Capital of France? ” or “ Define Osmosis” are some examples.
-  - To conclude, this feature is simply our favorite ChatGPT in voice form.
+   - To conclude, this feature is simply our favorite ChatGPT in voice form.
 
 
-#### 2. Listen to your favorite book (Book Mode):
+2. **Listen to your favorite book (Book Mode):**
    - Download the pdf of the requested book and play it like an audiobook.
    - Control to stop and continue listening.
    - Powered by various NLP algorithms and search techniques using Google Books API.
 
-#### 3. Know the weather around you (Weather Mode):
+3. **Know the weather around you (Weather Mode):**
    - Ask the AI about the weather of a particular city.
    - AI responds with accurate temperature, humidity, and wind speed. For example, "What is the weather of Delhi?"
 
-<<<<<<< HEAD
-#### 4. Stay Updated with the latest news (News Mode):
+4. **Stay Updated with the latest news (News Mode):**
    - Request for news headlines of a particular category or in general.
    - AI responds with the latest headlines from categories like Sports, Technology, Business, etc.
-=======
-#### 1. Voice-Activated Search with ChatGPT
-#### 2. Integrated Voice Books
-#### 3. Integrated News Delivery based on defined category 
-#### 4. Integrated Weather Reporting
-#### 5. Search and Listen Music or Podcasts avaliable on a YouTube
->>>>>>> a52a87383ff6f23d1f6950c030b4e7e8d25080e8
 
-#### 5. Search and Listen to Music or Podcasts (YouTube Mode):
+5. **Search and Listen to Music or Podcasts (YouTube Mode):**
    - Empowers the user to search any song or video from YouTube.
    - Example: "Simon Sinek: How Great Leaders Inspire Action | TED Talk" or "Believer | Imagine Dragons."
 
