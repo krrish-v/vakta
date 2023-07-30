@@ -3,7 +3,7 @@
 ![Image](demo/vak.png)
 
 ## Introduction
-Introducing <strong>"Vakta Voicebot"</strong> - an innovative and cutting-edge GUI based project developed for the Hackathon. Vakta is a state-of-the-art, fully voice-activated, and AI-enabled voicebot, thoughtfully designed with the primary objective of <strong>empowering the visually impaired community</strong>. with adaptive learning technology. With an unwavering commitment to providing an inclusive and seamless user experience, Vakta Voicebot revolutionizes the way blind individuals interact with technology.
+Introducing <strong>"Vakta 0.0.1"</strong> - an innovative and cutting-edge GUI based project developed for the Hackathon. Vakta is a state-of-the-art, fully voice-activated, and AI-enabled voicebot, thoughtfully designed with the primary objective of <strong>empowering the visually impaired community</strong>. with adaptive learning technology. With an unwavering commitment to providing an inclusive and seamless user experience, Vakta Voicebot revolutionizes the way blind individuals interact with technology.
 
 <strong>"Vakta"</strong> is a Sanskrit word for <strong>"speaker."</strong> In our project, Vakta Voicebot embodies this essence by becoming a compassionate and intelligent mentor for the visually impaired. Just as ancient speakers conveyed wisdom, Vakta Voicebot aims to create a future of inclusivity and empowerment, bridging the gap between the visually impaired and knowledge.
 
