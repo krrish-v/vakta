@@ -10,5 +10,6 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 2. Integrated Voice Books
 #### 3. Integrated ChatGPT
 #### 4. Integrated News Delivery based on defined category 
+#### 5. Integrated Weather Reporting
 
 ![Alt Text](demo/sdfghu64tergdfhuu57463twt.png)
