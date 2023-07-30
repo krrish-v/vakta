@@ -9,6 +9,6 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 1. Voice-Activated Search
 #### 2. Integrated Voice Books
 #### 3. Integrated ChatGPT
-
+#### 4. Current News Delivery
 
 ![Alt Text](demo/sdfghu64tergdfhuu57463twt.png)
