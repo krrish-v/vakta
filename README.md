@@ -12,4 +12,10 @@ Introducing a new desktop app designed specifically for individuals with visual 
 #### 4. Integrated Weather Reporting
 #### 5. Search any song or video like "Simon Sinek: How great leaders inspire action | TED Talk" etc.. avaliable on a YouTube and get a running audio file
 
+### Setup
+
+    pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.tar.gz
+
+### Frontened
+
 ![Alt Text](demo/vak.png)
