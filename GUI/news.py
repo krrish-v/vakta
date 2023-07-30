@@ -93,7 +93,7 @@ def fetch_news_by_category(category, max_description_length=100):
 
     base_url = 'https://newsapi.org/v2/top-headlines'
     params = {
-        'apiKey': '8064154d9eec48bc97de27bdf982c349',
+        'apiKey': '<API KEY>',
         'category': category,
         'pageSize': 2,  # You can adjust the number of articles you want to fetch
         'language': 'en',  # Fetch only English news
