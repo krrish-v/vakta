@@ -8,21 +8,20 @@ from kivy.clock import Clock
 import speech_recognition as sr
 import time
 import pickle
+import json
 from elevenlabs import generate, play, set_api_key
 
 from books_recommend import get_pdf
 from news import fetch_news_by_category, find_category
 from weather import get_weather
 from audio_video import search_and_get_audio
-
+from message import load
 
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferWindowMemory
 
-
-set_api_key("<API KEY>")
-
+set_api_key('<API KEY>')
 
 # set memory buffer window to 1 to avoid passing excessive tokens-->
 memory = ConversationBufferWindowMemory(k=1) # stores previous k conversations between Ai and human
@@ -84,6 +83,7 @@ KV = """
 class MainScreen(BoxLayout):
     count = 0
     yt = False
+    messg = False
     
     def engine(self, dt):
         self.r = sr.Recognizer()
@@ -101,16 +101,20 @@ class MainScreen(BoxLayout):
     def recog(self, dts):
         try:
             self.text = self.r.recognize_google(self.audio) # google is used a recognisor
-
-            if self.count == 0 and self.yt is False:
+            
+            if self.count == 0 and self.yt is False and self.messg is False:
                 Clock.schedule_once(lambda x: self.display(self.text), 0.1)
             elif self.yt is True:
                 Clock.schedule_once(lambda x: self.audio_from_video(self.text), 0.1)
+            elif self.messg is True:
+                print('hello')
+                Clock.schedule_once(lambda x: self.sent_message(self.text), 0.1)
             else:
                 Clock.schedule_once(lambda x: self.read_doc(self.text), 0.1)
 
         except:
             self.speaker('Unable to recognise your voice Try again')
+            self.ids.voice.md_bg_color = 'green'
             Clock.schedule_once(self.engine, 0.1)
 
     # Define the callback for the voice icon press
@@ -142,6 +146,7 @@ class MainScreen(BoxLayout):
             else: 
                 self.speaker(f'Unable to get the name of a book you asked, Say it again')
                 self.ids.voice.md_bg_color = 'green'
+                self.ids.voice.md_bg_color = 'green'
                 Clock.schedule_once(self.engine, 0.1)
 
         elif 'news' in sent or 'search' in sent:
@@ -152,7 +157,7 @@ class MainScreen(BoxLayout):
 
                 if news is not None:
                     for key, value in news.items():
-                        self.speaker(f'Headline    {key}')
+                        self.speaker(f'Headline  {key}')
                         self.speaker(value)
 
             else: self.speaker(f'Unable to find the news of {catg}, Say it again')
@@ -163,6 +168,12 @@ class MainScreen(BoxLayout):
         elif 'youtube' in sent or 'YouTube' in sent:
             self.yt = True
             self.speaker('What is your search query')
+            self.ids.voice.md_bg_color = 'green'
+            Clock.schedule_once(self.engine, 0.1)
+
+        elif 'message' in sent and 'send' in sent:
+            self.messg = True
+            self.speaker('What message you want send')
             self.ids.voice.md_bg_color = 'green'
             Clock.schedule_once(self.engine, 0.1)
         
@@ -183,6 +194,21 @@ class MainScreen(BoxLayout):
             self.speaker(output)
             self.ids.voice.md_bg_color = 'green'            
             Clock.schedule_once(self.engine, 0.1)
+
+    def sent_message(self, message):
+
+        f = open('contact.json', 'r')
+        cdetail = json.load(f)
+        f.close()
+
+        csent = load(message, cdetail['krrish'])
+
+        self.messg = False
+        if csent is True: self.speaker('Sucessfully sended')
+        else: self.speaker('Unabel to send a message')
+
+        self.ids.voice.md_bg_color = 'green'            
+        Clock.schedule_once(self.engine, 0.1)
 
     def audio_from_video(self, text):
         self.speaker(f'Downloading a audio file {text} form youtube')
@@ -234,7 +260,7 @@ class GUIApp(MDApp):
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.title = 'Vakta VoiceBot'
+        self.title = 'Vakta 0.0.1 AI-powered voice learning platform'
         self.theme_cls.theme_style = 'Dark'
 
         Builder.load_string(KV)
