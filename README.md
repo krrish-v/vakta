@@ -31,12 +31,17 @@ Introducing <strong>"Vakta 0.0.1"</strong> - an innovative and cutting-edge GUI 
    - Empowers the user to search any song or video from YouTube.
    - Example: "Simon Sinek: How Great Leaders Inspire Action | TED Talk" or "Believer | Imagine Dragons."
 
+6. **Send a message to your contacts (Messaging Mode):**
+   - Makes the user to send message easily to their contacts
+   - Example: "Send a message to 'Contact Name' "
+
 ## Voice Commands:
 - **General Mode:** The AI operates in the general chat mode (Feature 1) if no specific command is used.
 - **Book Mode:** Enable book mode by saying "Download book <book_name>."
 - **Weather Mode:** Enable weather mode by saying "weather <your_city_name>."
 - **News Mode:** Enable news mode by saying "Search News <category>."
 - **YouTube Mode:** Enable YouTube mode by saying "YouTube" and then provide the video title when prompted.
+- **Messaging Mode:** Enabel this mode by saying "send message" and then provie the message you want to send
 - **Exit Program:** Say "Exit Program" to close the application.
 
 ## Tech Stack
@@ -48,6 +53,7 @@ Introducing <strong>"Vakta 0.0.1"</strong> - an innovative and cutting-edge GUI 
 - [NewsAPI](https://newsapi.org/)
 - [Google Books](https://developers.google.com/books)
 - [Open Weather Map](https://home.openweathermap.org/)
+- [Twillo](https://www.twilio.com/login)
 
 ## Developer Machine Setup
 1. Clone the repository:
