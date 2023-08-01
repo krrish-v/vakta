@@ -74,6 +74,8 @@ b. In Linux or MacOS: <code>source env/bin/activate</code>
 - Enhance the features and make it a fully ready platform for voice-based learning.
 - Release the app in the market, possibly on a subscription-based model.
 
+-Currently working only on Linux OS system
+
 ## References
 - [Kivy documentation](https://kivy.org/doc/stable/gettingstarted/intro.html)
 - [ElevenLabs API Reference](https://docs.elevenlabs.io/api-reference/quick-start/introduction)
