@@ -76,6 +76,10 @@ b. In Linux or MacOS: <code>source env/bin/activate</code>
 
 -Currently working only on Linux OS system
 
+## Demo
+
+(https://youtu.be/UiNxtdCrQMA)
+
 ## References
 - [Kivy documentation](https://kivy.org/doc/stable/gettingstarted/intro.html)
 - [ElevenLabs API Reference](https://docs.elevenlabs.io/api-reference/quick-start/introduction)
